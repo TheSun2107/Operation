@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.urlname.label }}<br>
+            {{ form.urlname(cols=32, rows=4) }}<br>
+            {{ form.description.label }}<br>
+            {{ form.description(cols=32, rows=4) }}<br>
+            {% for error in form.urlname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% for url in urls %}
+    <p>
+    {{ url.author.username }}<b>{{ url.urlname }}</b>: {{ url.description}}
+    </p>
+    {% endfor %}
+{% endblock %}

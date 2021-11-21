@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    {% for url in urls %}
+    <p>
+    {{ urls.author.username }}: <b>{{ urls.urlname }}</b>: {{ urls.description}}
+    </p>
+    {% endfor %}
+{% endblock %}
